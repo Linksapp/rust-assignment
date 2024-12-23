@@ -14,12 +14,12 @@ fn pig_latin(s: Vec<&str>) {
         if f_ch != &vowel[0..1] && f_ch != &vowel[1..2] && f_ch != &vowel[2..3]&& f_ch != &vowel[3..4] && f_ch != &vowel[4..5]&& f_ch != &vowel[5..6]{
             let first_char = &word[0..1];
             let new_word = &word[1 .. len];
-            let s1 =  String::from("hay");
+            let s1 =  String::from("ay");
             s = new_word.to_owned()+&first_char+&s1;
 
         }
         else {
-            let s2 =  String::from("ay");
+            let s2 =  String::from("hay");
             s = word.to_owned()+&s2;
         }
         rezult.push(s);
