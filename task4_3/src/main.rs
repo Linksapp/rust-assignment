@@ -17,14 +17,14 @@ fn main() {
 
         if let Some((name, department)) = parse_command(input) {
             departments
-                .entry(department.clone()) // Используем clone здесь
+                .entry(department.clone()) 
                 .or_insert_with(Vec::new)
-                .push(name.clone()); // Клонируем имя для хранения в векторе
+                .push(name.clone());
             println!("Добавлено: {} в отдел {}", name, department);
         } else if input.eq_ignore_ascii_case("list all") {
             list_all_employees(&departments);
         } else if let Some(department) = input.strip_prefix("list ") {
-            list_department_employees(&departments, department.trim()); // Передаем ссылку
+            list_department_employees(&departments, department.trim());
         } else {
             println!("Неверная команда. Попробуйте снова.");
         }
@@ -57,7 +57,7 @@ fn list_all_employees(departments: &HashMap<String, Vec<String>>) {
     }
 }
 
-fn list_department_employees(departments: &HashMap<String, Vec<String>>, department: &str) { // Изменяем тип на &str
+fn list_department_employees(departments: &HashMap<String, Vec<String>>, department: &str) {
     match departments.get(department) {
         Some(employees) => {
             println!("Сотрудники отдела {}:", department);
